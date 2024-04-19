@@ -35,6 +35,7 @@ public class FornecedorResources {
         return ResponseEntity.created(location).build();
     }
     @GetMapping("/fornecedores/{id}/produtos")
+    @JsonIgnore
     public List<Produto> listarProdutosDeForn(@PathVariable int id){
         Optional <Fornecedor> fornecedores = fornecedorRepository.findById(id);
         return fornecedores.get().getProdutos();
